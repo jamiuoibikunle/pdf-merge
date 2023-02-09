@@ -2,10 +2,42 @@ import {Box, Button, Heading, HStack, Input, Text, VStack} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NavigationBar from '../components/NavigationBar';
 
+import DocumentPicker, {
+  DirectoryPickerResponse,
+  DocumentPickerResponse,
+  isInProgress,
+  types,
+} from 'react-native-document-picker';
+import {useEffect, useState} from 'react';
+
 export default ({navigation}: any) => {
+  const [result, setResult] = useState<
+    DocumentPickerResponse[] | DirectoryPickerResponse[] | undefined | null
+  >([]);
+
+  useEffect(() => {
+    // console.log(JSON.stringify(result, null, 2));
+    console.log(result);
+  }, [result]);
+
+  const handleError = (err: unknown) => {
+    if (DocumentPicker.isCancel(err)) {
+      console.warn('Cancelled');
+    } else if (isInProgress(err)) {
+      console.warn('Multiple pickers');
+    } else {
+      throw err;
+    }
+  };
+
   return (
-    <Box flex={1}>
-      <NavigationBar />
+    <Box flex={1} position="relative">
+      <NavigationBar
+        documentPicker={DocumentPicker}
+        result={result}
+        setResult={setResult}
+        handleError={handleError}
+      />
       <VStack
         bg="#657CF9"
         h={180}
