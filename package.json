@@ -13,6 +13,7 @@
     "@react-navigation/native": "^6.1.3",
     "@react-navigation/native-stack": "^6.9.9",
     "native-base": "^3.4.25",
+    "pdf-merger-js": "^4.2.0",
     "pod-install": "^0.1.38",
     "react": "18.2.0",
     "react-native": "0.71.2",

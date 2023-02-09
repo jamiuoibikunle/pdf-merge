@@ -1,9 +1,11 @@
 import {Box, Button, Heading, HStack, Input, Text, VStack} from 'native-base';
 import Icon from 'react-native-vector-icons/Ionicons';
+import NavigationBar from '../components/NavigationBar';
 
 export default ({navigation}: any) => {
   return (
     <Box flex={1}>
+      <NavigationBar />
       <VStack
         bg="#657CF9"
         h={180}

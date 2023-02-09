@@ -12,7 +12,7 @@ export default () => {
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="Dashboard"
           screenOptions={{headerShown: false}}>
           <Stack.Screen name="Home" component={Homepage} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
